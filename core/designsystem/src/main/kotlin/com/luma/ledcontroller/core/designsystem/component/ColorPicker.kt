@@ -62,7 +62,7 @@ fun LumaColorPickerDialog(
     initialColor: Long,
     onColorChange: (Long) -> Unit,
     onDismiss: () -> Unit,
-    title: String = "Stop colour",
+    title: String = stringResource(R.string.core_designsystem_stop_colour),
 ) {
     val initialHsv = remember(initialColor) { initialColor.toColorInt().toHsv() }
     var hue by remember(initialColor) { mutableStateOf(initialHsv[0]) }

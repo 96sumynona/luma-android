@@ -32,10 +32,12 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalInspectionMode
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.luma.ledcontroller.core.designsystem.R
 import com.luma.ledcontroller.core.designsystem.theme.LumaTheme
 import com.luma.ledcontroller.core.model.AnimationKind
 import com.luma.ledcontroller.core.model.ColorRamp
@@ -79,7 +81,10 @@ fun LumaModePreview(
         modifier = modifier
             .height(height)
             .semantics {
-                contentDescription = "Mode preview, ${ramp.stops.size} colour stops"
+                contentDescription = stringResource(
+                    R.string.core_designsystem_mode_preview_a11y,
+                    ramp.stops.size,
+                )
             },
     ) {
         val count = pixelCount.coerceAtLeast(2)

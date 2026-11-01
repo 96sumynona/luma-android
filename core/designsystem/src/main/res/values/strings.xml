@@ -28,4 +28,6 @@
     <string name="core_designsystem_color_preview">Colour preview</string>
     <string name="core_designsystem_ramp_preview">Colour ramp preview</string>
     <string name="core_designsystem_ramp_editor_a11y">Colour ramp with %1$d stops. Drag a handle to move a stop.</string>
+    <string name="core_designsystem_mode_preview_a11y">Mode preview, %1$d colour stops</string>
+    <string name="core_designsystem_stop_colour">Stop colour</string>
 </resources>
