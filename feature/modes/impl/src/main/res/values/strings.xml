@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright 2025 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          https://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="feature_modes_impl_library_title">Reusable modes</string>
+    <string name="feature_modes_impl_library_hint">Modes are shared. A strip or a schedule points at a mode, so editing one mode updates every strip that uses it.</string>
+    <string name="feature_modes_impl_empty_title">No modes yet</string>
+    <string name="feature_modes_impl_empty_message">A mode is a colour ramp plus a little motion. Build one, then point a strip or a schedule at it.</string>
+    <string name="feature_modes_impl_new_mode">New mode</string>
+    <string name="feature_modes_impl_stops">%1$d stops</string>
+    <string name="feature_modes_impl_solid">Solid</string>
+    <string name="feature_modes_impl_used_by">Used by %1$d strips</string>
+    <string name="feature_modes_impl_editor_details">Mode</string>
+    <string name="feature_modes_impl_name_label">Name</string>
+    <string name="feature_modes_impl_name_error">Give the mode a name</string>
+    <string name="feature_modes_impl_ramp_title">Colour ramp</string>
+    <string name="feature_modes_impl_ramp_hint">Drag a handle to move a stop. Both ends are movable — the nearest colour is extended to the edge, so the ramp is never empty.</string>
+    <string name="feature_modes_impl_add_stop">Add stop</string>
+    <string name="feature_modes_impl_add_stop_limit">Eight stops is the maximum</string>
+    <string name="feature_modes_impl_remove_stop">Remove stop</string>
+    <string name="feature_modes_impl_position">Position</string>
+    <string name="feature_modes_impl_edit_colour">Edit colour</string>
+    <string name="feature_modes_impl_stop_colour_title">Stop colour</string>
+    <string name="feature_modes_impl_hex_label">Hex</string>
+    <string name="feature_modes_impl_hex_error">Use six hex digits, for example 7A3EFF</string>
+    <string name="feature_modes_impl_hue">Hue</string>
+    <string name="feature_modes_impl_saturation">Saturation</string>
+    <string name="feature_modes_impl_value">Value</string>
+    <string name="feature_modes_impl_done">Done</string>
+    <string name="feature_modes_impl_animation_title">Animation</string>
+    <string name="feature_modes_impl_animation_hint">Stored for the controller. Only the preview on this phone animates.</string>
+    <string name="feature_modes_impl_animation_kind">Pattern</string>
+    <string name="feature_modes_impl_animation_solid">Solid</string>
+    <string name="feature_modes_impl_animation_breathe">Breathe</string>
+    <string name="feature_modes_impl_animation_chase">Chase</string>
+    <string name="feature_modes_impl_animation_twinkle">Twinkle</string>
+    <string name="feature_modes_impl_animation_speed">Speed</string>
+    <string name="feature_modes_impl_animation_spread">Spread</string>
+    <string name="feature_modes_impl_animation_reverse">Reverse direction</string>
+    <string name="feature_modes_impl_preview_title">Preview</string>
+    <string name="feature_modes_impl_preview_hint">Full strength preview. Brightness never dims it.</string>
+    <string name="feature_modes_impl_save">Save</string>
+    <string name="feature_modes_impl_save_as_new">Save as new</string>
+    <string name="feature_modes_impl_delete">Delete mode</string>
+    <string name="feature_modes_impl_delete_title">Delete “%1$s”?</string>
+    <string name="feature_modes_impl_delete_message">Strips using this mode will have no mode. Schedules that point at it will be turned off, so nothing points at a mode that no longer exists.</string>
+    <string name="feature_modes_impl_delete_confirm">Delete</string>
+    <string name="feature_modes_impl_cancel">Cancel</string>
+    <string name="feature_modes_impl_unsaved">Unsaved changes</string>
+    <string name="feature_modes_impl_saved">Mode saved</string>
+    <string name="feature_modes_impl_duplicate">Duplicate</string>
+    <string name="feature_modes_impl_duplicate_suffix">%1$s copy</string>
+    <string name="feature_modes_impl_duplicate_done">Mode duplicated</string>
+    <string name="feature_modes_impl_edit">Edit</string>
+    <string name="feature_modes_impl_stop_position_error">Position must be between 0 and 100</string>
+    <string name="feature_modes_impl_ramp_invalid">Check the ramp: stops must stay inside 0–100 and not overlap</string>
+    <string name="feature_modes_impl_leave_title">Unsaved changes</string>
+    <string name="feature_modes_impl_leave_message">This mode has changes you have not saved. Choose what happens to them.</string>
+    <string name="feature_modes_impl_discard">Discard</string>
+    <string name="feature_modes_impl_save_as_new_mode">Save as new mode</string>
+    <string name="feature_modes_impl_keep_editing">Keep editing</string>
+    <string name="feature_modes_impl_name_placeholder">Evening wind-down</string>
+</resources>

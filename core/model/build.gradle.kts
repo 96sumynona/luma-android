@@ -15,9 +15,12 @@
  */
 
 plugins {
-    alias(libs.plugins.nowinandroid.jvm.library)
+    alias(libs.plugins.luma.jvm.library)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 dependencies {
     api(libs.kotlinx.datetime)
+    api(libs.kotlinx.serialization.json)
+    testImplementation(libs.junit)
 }

@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 plugins {
-    alias(libs.plugins.nowinandroid.jvm.library)
-    alias(libs.plugins.nowinandroid.hilt)
+    alias(libs.plugins.luma.jvm.library)
+    alias(libs.plugins.luma.hilt)
 }
 
 dependencies {

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright 2025 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          https://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="feature_schedules_impl_hint_title">Stored, not running yet</string>
+    <string name="feature_schedules_impl_hint">Schedules are saved on this phone for the controller to run later. This build has no connection to a controller, so nothing fires on the LEDs.</string>
+    <string name="feature_schedules_impl_empty_title">No schedules yet</string>
+    <string name="feature_schedules_impl_empty_message">A schedule switches one strip to one mode at a time you choose, on the days you choose.</string>
+    <string name="feature_schedules_impl_new">New schedule</string>
+    <string name="feature_schedules_impl_enabled">On</string>
+    <string name="feature_schedules_impl_disabled">Off</string>
+    <string name="feature_schedules_impl_transition">Transition</string>
+    <string name="feature_schedules_impl_immediate">Immediate</string>
+    <string name="feature_schedules_impl_strip_missing">Strip removed</string>
+    <string name="feature_schedules_impl_mode_missing">Mode removed</string>
+    <string name="feature_schedules_impl_delete_title">Delete this schedule?</string>
+    <string name="feature_schedules_impl_delete_message">The strip keeps whatever mode it is showing; only the scheduled change is removed.</string>
+    <string name="feature_schedules_impl_delete">Delete</string>
+    <string name="feature_schedules_impl_cancel">Cancel</string>
+    <string name="feature_schedules_impl_edit">Edit</string>
+    <string name="feature_schedules_impl_editor_title">Schedule</string>
+    <string name="feature_schedules_impl_name_label">Name (optional)</string>
+    <string name="feature_schedules_impl_name_placeholder">Evening</string>
+    <string name="feature_schedules_impl_strip_label">Strip</string>
+    <string name="feature_schedules_impl_mode_label">Mode</string>
+    <string name="feature_schedules_impl_time_label">Time</string>
+    <string name="feature_schedules_impl_time_title">Change at</string>
+    <string name="feature_schedules_impl_days_label">Repeat</string>
+    <string name="feature_schedules_impl_days_hint">Pick at least one day.</string>
+    <string name="feature_schedules_impl_transition_label">Transition length</string>
+    <string name="feature_schedules_impl_transition_hint">How long the strip takes to blend into the new mode.</string>
+    <string name="feature_schedules_impl_seconds">%1$d s</string>
+    <string name="feature_schedules_impl_minutes">%1$d min</string>
+    <string name="feature_schedules_impl_save">Save</string>
+    <string name="feature_schedules_impl_saved">Schedule saved</string>
+    <string name="feature_schedules_impl_delete_schedule">Delete schedule</string>
+    <string name="feature_schedules_impl_create_first">Add a strip and a mode in Settings first.</string>
+    <string name="feature_schedules_impl_no_strips">No strips configured</string>
+    <string name="feature_schedules_impl_no_modes">No modes yet</string>
+    <string name="feature_schedules_impl_error_strip">Choose a strip</string>
+    <string name="feature_schedules_impl_error_mode">Choose a mode</string>
+    <string name="feature_schedules_impl_error_days">Choose at least one day</string>
+    <string name="feature_schedules_impl_next_run">Next: %1$s</string>
+    <string name="feature_schedules_impl_unsaved">Unsaved changes</string>
+    <string name="feature_schedules_impl_all_days">Every day / none</string>
+    </resources>

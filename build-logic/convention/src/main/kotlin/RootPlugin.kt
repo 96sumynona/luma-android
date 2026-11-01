@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-import com.google.samples.apps.nowinandroid.configureGraphTasks
-import com.google.samples.apps.nowinandroid.configureSpotlessForRootProject
+import com.luma.ledcontroller.configureGraphTasks
+import com.luma.ledcontroller.configureSpotlessForRootProject
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.configuration.BuildFeatures

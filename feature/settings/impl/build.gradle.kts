@@ -15,21 +15,23 @@
  */
 
 plugins {
-    alias(libs.plugins.nowinandroid.android.feature.impl)
-    alias(libs.plugins.nowinandroid.android.library.compose)
-    alias(libs.plugins.nowinandroid.android.library.jacoco)
+    alias(libs.plugins.luma.android.feature.impl)
+    alias(libs.plugins.luma.android.library.compose)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
-    namespace = "com.google.samples.apps.nowinandroid.feature.settings.impl"
+    namespace = "com.luma.ledcontroller.feature.settings.impl"
+    testOptions.unitTests.isIncludeAndroidResources = true
 }
 
 dependencies {
-    implementation(libs.androidx.appcompat)
-    implementation(libs.google.oss.licenses)
     implementation(projects.core.data)
+    implementation(projects.core.domain)
+    implementation(projects.feature.settings.api)
 
+    implementation(libs.kotlinx.serialization.json)
+
+    testImplementation(libs.hilt.android.testing)
     testImplementation(projects.core.testing)
-
-    androidTestImplementation(libs.bundles.androidx.compose.ui.test)
 }

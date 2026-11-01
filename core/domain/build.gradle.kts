@@ -14,13 +14,12 @@
  * limitations under the License.
  */
 plugins {
-    alias(libs.plugins.nowinandroid.android.library)
-    alias(libs.plugins.nowinandroid.android.library.jacoco)
-    id("com.google.devtools.ksp")
+    alias(libs.plugins.luma.android.library)
+    alias(libs.plugins.luma.android.library.jacoco)
 }
 
 android {
-    namespace = "com.google.samples.apps.nowinandroid.core.domain"
+    namespace = "com.luma.ledcontroller.core.domain"
 }
 
 dependencies {
@@ -28,6 +27,8 @@ dependencies {
     api(projects.core.model)
 
     implementation(libs.javax.inject)
+    implementation(libs.kotlinx.coroutines.core)
 
+    testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(projects.core.testing)
 }

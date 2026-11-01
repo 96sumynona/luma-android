@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright 2021 The Android Open Source Project
+     Copyright 2025 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
 
-          http://www.apache.org/licenses/LICENSE-2.0
+          https://www.apache.org/licenses/LICENSE-2.0
 
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
@@ -16,23 +16,21 @@
 -->
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Allows us to override night specific attributes in the
-         values-night folder. -->
-    <style name="NightAdjusted.Theme.Nia" parent="android:Theme.Material.Light.NoActionBar" />
-
-    <!-- The final theme we use -->
-    <style name="Theme.Nia" parent="NightAdjusted.Theme.Nia">
+    <!--
+    Luma is a fixed dark app. The platform theme only provides the window before Compose draws,
+    so it is deliberately a dark, chrome-less theme with Luma's ink colour behind the content.
+    -->
+    <style name="Theme.Luma" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/luma_ink</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="android:forceDarkAllowed" tools:targetApi="29">false</item>
     </style>
 
-    <style name="NightAdjusted.Theme.Splash" parent="Theme.SplashScreen">
-        <item name="android:windowLightStatusBar" tools:targetApi="23">true</item>
-        <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
-    </style>
-
-    <style name="Theme.Nia.Splash" parent="NightAdjusted.Theme.Splash">
-        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash</item>
-        <item name="postSplashScreenTheme">@style/Theme.Nia</item>
+    <style name="Theme.Luma.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/luma_ink</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_luma_launcher_foreground</item>
+        <item name="postSplashScreenTheme">@style/Theme.Luma</item>
     </style>
 
 </resources>

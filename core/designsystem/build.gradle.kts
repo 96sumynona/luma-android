@@ -14,20 +14,20 @@
  * limitations under the License.
  */
 plugins {
-    alias(libs.plugins.nowinandroid.android.library)
-    alias(libs.plugins.nowinandroid.android.library.compose)
-    alias(libs.plugins.nowinandroid.android.library.jacoco)
-    alias(libs.plugins.roborazzi)
+    alias(libs.plugins.luma.android.library)
+    alias(libs.plugins.luma.android.library.compose)
+    alias(libs.plugins.luma.android.library.jacoco)
 }
 
 android {
-    namespace = "com.google.samples.apps.nowinandroid.core.designsystem"
+    namespace = "com.luma.ledcontroller.core.designsystem"
     testOptions.unitTests.isIncludeAndroidResources = true
 }
 
 dependencies {
     lintPublish(projects.lint)
 
+    api(libs.androidx.compose.animation)
     api(libs.androidx.compose.foundation)
     api(libs.androidx.compose.foundation.layout)
     api(libs.androidx.compose.material.iconsExtended)
@@ -37,12 +37,5 @@ dependencies {
     api(libs.androidx.compose.runtime)
     api(libs.androidx.compose.ui.util)
 
-    implementation(libs.coil.kt.compose)
-
-    testImplementation(libs.androidx.compose.ui.test)
-    testImplementation(libs.androidx.compose.ui.testManifest)
-    
-    testImplementation(libs.hilt.android.testing)
-    testImplementation(libs.robolectric)
-    testImplementation(projects.core.screenshotTesting)
+    api(projects.core.model)
 }

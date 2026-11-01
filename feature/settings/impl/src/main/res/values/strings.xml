@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright 2022 The Android Open Source Project
+     Copyright 2025 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
 
-          http://www.apache.org/licenses/LICENSE-2.0
+          https://www.apache.org/licenses/LICENSE-2.0
 
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
@@ -15,23 +15,75 @@
      limitations under the License.
 -->
 <resources>
-    <string name="feature_settings_impl_top_app_bar_action_icon_description">Settings</string>
-    <string name="feature_settings_impl_top_app_bar_navigation_icon_description">Search</string>
-    <string name="feature_settings_impl_title">Settings</string>
-    <string name="feature_settings_impl_loading">Loading…</string>
-    <string name="feature_settings_impl_privacy_policy">Privacy policy</string>
-    <string name="feature_settings_impl_licenses">Licenses</string>
-    <string name="feature_settings_impl_brand_guidelines">Brand Guidelines</string>
-    <string name="feature_settings_impl_feedback">Feedback</string>
-    <string name="feature_settings_impl_theme">Theme</string>
-    <string name="feature_settings_impl_brand_default">Default</string>
-    <string name="feature_settings_impl_brand_android">Android</string>
-    <string name="feature_settings_impl_dark_mode_preference">Dark mode preference</string>
-    <string name="feature_settings_impl_dark_mode_config_system_default">System default</string>
-    <string name="feature_settings_impl_dark_mode_config_light">Light</string>
-    <string name="feature_settings_impl_dark_mode_config_dark">Dark</string>
-    <string name="feature_settings_impl_dynamic_color_preference">Use Dynamic Color</string>
-    <string name="feature_settings_impl_dynamic_color_yes">Yes</string>
-    <string name="feature_settings_impl_dynamic_color_no">No</string>
-    <string name="feature_settings_impl_dismiss_dialog_button_text">OK</string>
+    <string name="feature_settings_impl_shell_title">Configuration only</string>
+    <string name="feature_settings_impl_shell_message">Everything here is stored on this phone. This build has no BLE link to a controller, so nothing is sent to hardware yet.</string>
+    <string name="feature_settings_impl_boards_title">Boards</string>
+    <string name="feature_settings_impl_boards_hint">One board drives one or more strips. Every strip belongs to exactly one board and has its own GPIO and LED count.</string>
+    <string name="feature_settings_impl_strips_title">Strips</string>
+    <string name="feature_settings_impl_add_board">Add board</string>
+    <string name="feature_settings_impl_add_strip">Add strip</string>
+    <string name="feature_settings_impl_no_boards">No boards yet</string>
+    <string name="feature_settings_impl_no_boards_message">Start with the controller board, then add the strips wired to it.</string>
+    <string name="feature_settings_impl_no_strips">No strips on this board yet</string>
+    <string name="feature_settings_impl_board_summary">%1$d pixel limit · %2$d byte buffer · %3$s</string>
+    <string name="feature_settings_impl_strip_summary">GPIO %1$d · %2$d LEDs</string>
+    <string name="feature_settings_impl_layout_linear">Linear</string>
+    <string name="feature_settings_impl_layout_serpentine">Serpentine</string>
+    <string name="feature_settings_impl_wifi_title">Wi-Fi credentials</string>
+    <string name="feature_settings_impl_wifi_hint">Used later to provision a board over BLE. The password is encrypted on this device before it is written to disk and is never shown again.</string>
+    <string name="feature_settings_impl_wifi_not_set">No credentials stored</string>
+    <string name="feature_settings_impl_wifi_ssid">Network</string>
+    <string name="feature_settings_impl_wifi_password_stored">Password stored encrypted</string>
+    <string name="feature_settings_impl_wifi_edit">Edit</string>
+    <string name="feature_settings_impl_wifi_ssid_label">Network name (SSID)</string>
+    <string name="feature_settings_impl_wifi_password_label">Password</string>
+    <string name="feature_settings_impl_wifi_save">Save credentials</string>
+    <string name="feature_settings_impl_wifi_saved">Wi-Fi credentials saved</string>
+    <string name="feature_settings_impl_wifi_ssid_error">Enter a network name</string>
+    <string name="feature_settings_impl_wifi_password_error">Enter a password</string>
+    <string name="feature_settings_impl_wifi_encryption_failed">Could not encrypt the password on this device. Nothing was saved.</string>
+    <string name="feature_settings_impl_about_title">About this build</string>
+    <string name="feature_settings_impl_about_message">Luma stores boards, strips, modes and schedules locally. It does not talk to LEDs, run schedules, or connect to a controller in this version.</string>
+    <string name="feature_settings_impl_board_title">Board</string>
+    <string name="feature_settings_impl_board_name">Board name</string>
+    <string name="feature_settings_impl_board_pixel_limit">Pixel limit</string>
+    <string name="feature_settings_impl_board_pixel_limit_hint">Up to %1$d pixels per board.</string>
+    <string name="feature_settings_impl_board_buffer">Buffer size (bytes)</string>
+    <string name="feature_settings_impl_board_layout">Pixel layout</string>
+    <string name="feature_settings_impl_board_save">Save board</string>
+    <string name="feature_settings_impl_board_saved">Board saved</string>
+    <string name="feature_settings_impl_board_delete">Delete board</string>
+    <string name="feature_settings_impl_board_delete_title">Delete this board?</string>
+    <string name="feature_settings_impl_board_delete_message">Every strip on this board is removed too, together with its schedules.</string>
+    <string name="feature_settings_impl_strip_name">Strip name</string>
+    <string name="feature_settings_impl_strip_board">Board</string>
+    <string name="feature_settings_impl_strip_gpio">GPIO data pin</string>
+    <string name="feature_settings_impl_strip_leds">Active LEDs</string>
+    <string name="feature_settings_impl_strip_leds_hint">Up to %1$d LEDs, and no more than the board's pixel limit.</string>
+    <string name="feature_settings_impl_strip_mode">Mode</string>
+    <string name="feature_settings_impl_strip_mode_none">No mode</string>
+    <string name="feature_settings_impl_strip_brightness">Brightness</string>
+    <string name="feature_settings_impl_strip_brightness_hint">Capped at %1$d%%. Brightness never dims the mode preview.</string>
+    <string name="feature_settings_impl_strip_title">Strip</string>
+    <string name="feature_settings_impl_strip_save">Save strip</string>
+    <string name="feature_settings_impl_strip_saved">Strip saved</string>
+    <string name="feature_settings_impl_strip_delete">Delete strip</string>
+    <string name="feature_settings_impl_strip_delete_title">Delete this strip?</string>
+    <string name="feature_settings_impl_strip_delete_message">The strip and its schedules are removed. The modes it used stay in the library.</string>
+    <string name="feature_settings_impl_delete">Delete</string>
+    <string name="feature_settings_impl_cancel">Cancel</string>
+    <string name="feature_settings_impl_unsaved">Unsaved changes</string>
+    <string name="feature_settings_impl_save">Save</string>
+    <string name="feature_settings_impl_name_error">Enter a name</string>
+    <string name="feature_settings_impl_pixel_limit_error">Between 1 and %1$d</string>
+    <string name="feature_settings_impl_buffer_error">Between 1 and %1$d bytes</string>
+    <string name="feature_settings_impl_leds_error">Between 1 and %1$d LEDs</string>
+    <string name="feature_settings_impl_leds_exceed_error">This board's pixel limit is %1$d</string>
+    <string name="feature_settings_impl_gpio_error">Use a GPIO between %1$d and %2$d</string>
+    <string name="feature_settings_impl_boards_empty_action">Add your first board</string>
+    <string name="feature_settings_impl_strip_empty_action">Add a strip</string>
+    <string name="feature_settings_impl_limit_pixels">1 000 LED UI limit</string>
+    <string name="feature_settings_impl_limit_brightness">80% brightness ceiling</string>
+    <string name="feature_settings_impl_board_name_placeholder">Desk controller</string>
+    <string name="feature_settings_impl_strip_name_placeholder">Desk strip</string>
 </resources>

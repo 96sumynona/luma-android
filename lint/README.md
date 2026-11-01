@@ -1,45 +1,8 @@
 # `:lint`
 
+The project's own lint checks, published to every design-system consumer.
+
 ## Module dependency graph
 
-<!--region graph-->
-```mermaid
----
-config:
-  layout: elk
-  elk:
-    nodePlacementStrategy: SIMPLE
----
-graph TB
-  :lint[lint]:::unknown
-
-classDef android-application fill:#CAFFBF,stroke:#000,stroke-width:2px,color:#000;
-classDef android-feature fill:#FFD6A5,stroke:#000,stroke-width:2px,color:#000;
-classDef android-library fill:#9BF6FF,stroke:#000,stroke-width:2px,color:#000;
-classDef android-test fill:#A0C4FF,stroke:#000,stroke-width:2px,color:#000;
-classDef jvm-library fill:#BDB2FF,stroke:#000,stroke-width:2px,color:#000;
-classDef unknown fill:#FFADAD,stroke:#000,stroke-width:2px,color:#000;
-```
-
-<details><summary>📋 Graph legend</summary>
-
-```mermaid
-graph TB
-  application[application]:::android-application
-  feature[feature]:::android-feature
-  library[library]:::android-library
-  jvm[jvm]:::jvm-library
-
-  application -.-> feature
-  library --> jvm
-
-classDef android-application fill:#CAFFBF,stroke:#000,stroke-width:2px,color:#000;
-classDef android-feature fill:#FFD6A5,stroke:#000,stroke-width:2px,color:#000;
-classDef android-library fill:#9BF6FF,stroke:#000,stroke-width:2px,color:#000;
-classDef android-test fill:#A0C4FF,stroke:#000,stroke-width:2px,color:#000;
-classDef jvm-library fill:#BDB2FF,stroke:#000,stroke-width:2px,color:#000;
-classDef unknown fill:#FFADAD,stroke:#000,stroke-width:2px,color:#000;
-```
-
-</details>
-<!--endregion-->
+The generated graph is not committed: the module graph was re-cut for Luma, so the inherited
+graph would describe modules that no longer exist. Run `./gradlew graphUpdate` to write it.

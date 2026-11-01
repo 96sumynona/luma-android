@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 plugins {
-    alias(libs.plugins.nowinandroid.android.library)
-    alias(libs.plugins.nowinandroid.android.library.jacoco)
-    alias(libs.plugins.nowinandroid.hilt)
-    id("kotlinx-serialization")
+    alias(libs.plugins.luma.android.library)
+    alias(libs.plugins.luma.android.library.jacoco)
+    alias(libs.plugins.luma.hilt)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
-    namespace = "com.google.samples.apps.nowinandroid.core.data"
+    namespace = "com.luma.ledcontroller.core.data"
     testOptions.unitTests.isIncludeAndroidResources = true
 }
 
@@ -29,13 +29,13 @@ dependencies {
     api(projects.core.common)
     api(projects.core.database)
     api(projects.core.datastore)
-    api(projects.core.network)
+    api(projects.core.model)
 
-    implementation(projects.core.analytics)
-    implementation(projects.core.notifications)
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.serialization.json)
 
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.kotlinx.serialization.json)
-    testImplementation(projects.core.datastoreTest)
+    testImplementation(libs.turbine)
     testImplementation(projects.core.testing)
 }

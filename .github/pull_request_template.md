@@ -1,25 +1,17 @@
-**DO NOT CREATE A PULL REQUEST WITHOUT READING THESE INSTRUCTIONS**
+**What changed and why**
 
-## Instructions
-Thanks for submitting a pull request. To accept your pull request we need you do a few things: 
+<!-- One or two paragraphs. Which tab or module does this touch, and what does it change? -->
 
-**If this is your first pull request**
+**Checklist**
 
-- [Sign the contributors license agreement](https://cla.developers.google.com/)
+- [ ] `./gradlew spotlessApply` has been run
+- [ ] `./gradlew testDebugUnitTest` passes
+- [ ] `./gradlew :app:assembleDebug` builds
+- [ ] If this changes persisted configuration, `docs/ARCHITECTURE.md` and the transfer payload
+      (`core/data/…/LumaConfigPayload.kt`) are still accurate
+- [ ] No hardware feature is presented as working: there is still no Bluetooth, no board control and
+      no schedule execution in this phase
 
-**Ensure tests pass and code is formatted correctly**
+**Screenshots / recording**
 
-- Run local tests on the `DemoDebug` variant by running `./gradlew testDemoDebug`
-- Fix code formatting: `./gradlew spotlessApply`
-
-**Add a description**
-
-We need to know what you've done and why you've done it. Include a summary of what your pull request contains, and why you have made these changes. Include links to any relevant issues which it fixes.
-
-[Here's an example](https://github.com/android/nowinandroid/pull/1257).
-
-**NOW DELETE THIS LINE AND EVERYTHING ABOVE IT**
-
-**What I have done and why**
-
-\<add your PR description here\> 
+<!-- For UI changes, include a capture of the phone layout. -->

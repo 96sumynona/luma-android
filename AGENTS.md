@@ -1,58 +1,78 @@
-# Now in Android Project
+# Luma LED Controller — working notes
 
-Now in Android is a native Android mobile application written in Kotlin. It provides regular news
-about Android development. Users can choose to follow topics, be notified when new content is
-available, and bookmark items.
+Luma is an Android app for configuring addressable LED strips, built on the Now in Android base. This
+file is the short version of the conventions; `docs/ARCHITECTURE.md` explains the design and the
+deviations from the base app.
 
-## Architecture
+## Scope discipline
 
-This project is a modern Android application that follows the official architecture guidance from Google. It is a reactive, single-activity app that uses the following:
+**This build is a UI shell.** There is no Bluetooth, no board control, no schedule execution and no
+firmware. Never claim, label or imply otherwise in code, strings, comments or documentation, and do
+not "helpfully" add a fake transport. Modes and schedules are stored data; the previews animate in
+the app only.
 
--   **UI:** Built entirely with Jetpack Compose, including Material 3 components and adaptive layouts for different screen sizes.
--   **State Management:** Unidirectional Data Flow (UDF) is implemented using Kotlin Coroutines and `Flow`s. `ViewModel`s act as state holders, exposing UI state as streams of data.
--   **Dependency Injection:** Hilt is used for dependency injection throughout the app, simplifying the management of dependencies and improving testability.
--   **Navigation:** Navigation is handled by Jetpack Navigation 2 for Compose, allowing for a declarative and type-safe way to navigate between screens.
--   **Data:** The data layer is implemented using the repository pattern.
-    -   **Local Data:** Room and DataStore are used for local data persistence.
-    -   **Remote Data:** Retrofit and OkHttp are used for fetching data from the network.
--   **Background Processing:** WorkManager is used for deferrable background tasks.
+The configuration stays local. The Wi-Fi password is encrypted at rest (Android Keystore, AES/GCM)
+and is never read back into the UI.
 
-## Modules
+## Build and test
 
-The main Android app lives in the `app/` folder. Feature modules live in `feature/` and core and shared modules in `core/`.
+The project targets JDK 17 and Android SDK 36; use the wrapper.
 
-## Commands to Build & Test
+- Build: `./gradlew :app:assembleDebug`
+- Format: `./gradlew spotlessApply` (ktlint, config in `tools/luma-codestyle.xml`)
+- Unit tests: `./gradlew testDebugUnitTest`
+- Single test: `./gradlew testDebugUnitTest --tests "com.luma.ledcontroller.core.model.ColorRampTest"`
+- Lint: `./gradlew :app:lintDebug :lint:lint`
 
-The app and Android libraries have two product flavors: `demo` and `prod`, and two build types: `debug` and `release`.
+There are **no product flavours**: no `DemoDebug`, no `testDemoDebug`. Variants are `debug` and
+`release` only, and all sources live in `src/main`.
 
-- Build: `./gradlew assemble{Variant}`. Typically `assembleDemoDebug`.
-- Fix linting/formatting: `./gradlew spotlessApply`
-- Run local tests: `./gradlew {variant}Test`
-- Run single test: `./gradlew {variant}Test --tests "com.example.myapp.MyTestClass"`
-- Run local screenshot tests: `./gradlew verifyRoborazziDemoDebug`
+## Architecture rules
 
-### Instrumented tests
+- One module per concern, mirroring the base app: `core:model` (pure JVM), `core:domain` (use cases),
+  `core:data` (repositories over Room/DataStore), `core:database`, `core:datastore`,
+  `core:designsystem`, `core:ui`, `core:navigation`, `core:common`, `core:testing`, and
+  `feature:{home,modes,schedules,settings}:{api,impl}`.
+- `feature/*/api` holds only nav keys and screen titles; screens, ViewModels and entry providers live
+  in `feature/*/impl`.
+- Screens never touch a repository. They call a use case or read `ViewModel.uiState`.
+- Saves go through a use case returning `SaveResult<T>` (`Saved` | `Invalid(Set<LumaError>)`). Do not
+  throw for user error; render `LumaError` as inline text.
+- Product limits live in `core:model/LumaLimits.kt` and validation in `LumaValidation.kt`. Never
+  duplicate a limit in a screen: the 1,000-pixel cap, the 80% brightness ceiling and the 8 ramp stops
+  are single-sourced there.
+- A strip references a mode by id. Never copy ramp or animation data onto a strip, a schedule or a
+  board.
 
-- Gradle-managed devices to run on device tests: `./gradlew pixel6api31aospDebugAndroidTest`. Also `pixel4api30aospatdDebugAndroidTest` and `pixelcapi30aospatdDebugAndroidTest`.
+## UI rules
 
-### Creating tests
+- Use the `core:designsystem` components (`LumaCard`, `LumaSectionCard`, `LumaSettingRow`,
+  `LumaDropdown`, `LumaTextField`, `LumaNumberField`, `LumaButton`, `LumaTextButton`,
+  `LumaConfirmDialog`, `LumaEmptyState`, `LumaInfoBanner`, …) rather than raw Material 3 widgets; a
+  lint check flags some raw usages.
+- Colours come from `LumaTheme`. The app is one fixed dark purple scheme; do not add light/dark or
+  dynamic-colour branches.
+- Every user-facing string goes in the owning module's `res/values/strings.xml`, with the module name
+  as the prefix (`feature_modes_impl_…`, `core_ui_…`). Resource prefixes are enforced by the
+  convention plugin.
+- Editors with unsaved work register through `LeaveGuardEffect`: system back, toolbar back and tab
+  switching all route through `LeaveGuard.requestLeave`. Any new exit path must do the same.
+- A new screen gets its title in `app/.../ui/NestedDestinationTitle.kt` if it is not a tab.
 
-#### Instrumented tests
+## Navigation
 
-- Tests for UI features should only use `ComposeTestRule` with a `ComponentActivity`.
-- Bigger tests live in the `:app` module and they can start activities like `MainActivity`.
+Nav keys are `@Serializable` objects/data classes in the feature's `api` module; register the
+destination in the feature's entry provider (`homeEntry`, `modesEntry`, `schedulesEntry`,
+`settingsEntry`) and call it from `LumaApp`. Each tab keeps its own back stack (`core:navigation`).
 
-#### Local tests
+## Persistence
 
-- [kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines) for most assertions
-- [cashapp/turbine](https://github.com/cashapp/turbine) for complex coroutine tests
-- [google/truth](https://github.com/google/truth) for assertions
+Room changes need a migration and a schema export under `core/database/schemas`. If a change alters
+the transfer contract, bump `LumaConfigPayload.CURRENT_SCHEMA_VERSION` and update
+`docs/ARCHITECTURE.md` §5.
 
-## Continuous integration
+## Honesty in docs
 
-- The workflows are defined in `.github/workflows/*.yaml` and they contain various checks.
-- Screenshot tests are generated by CI, so they shouldn't be checked into the repo from a workstation.
-
-## Version control and code location
-
-- The project uses git and is hosted in https://github.com/android/nowinandroid.
+`README.md`, `BUILD.md` and `docs/ARCHITECTURE.md` state that nothing has been compiled or run in the
+environment the code was written in. Keep those statements accurate: only claim something is tested
+if a build or test run actually happened.

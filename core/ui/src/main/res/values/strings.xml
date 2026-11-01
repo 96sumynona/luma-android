@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright 2021 The Android Open Source Project
+     Copyright 2025 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,20 +15,18 @@
      limitations under the License.
 -->
 <resources>
-    <string name="core_ui_bookmark">Bookmark</string>
-    <string name="core_ui_unbookmark">Unbookmark</string>
     <string name="core_ui_back">Back</string>
-
-    <string name="core_ui_unread_resource_dot_content_description">Unread</string>
-
-    <string name="core_ui_card_tap_action">Open Resource Link</string>
-    <string name="core_ui_card_meta_data_text">%1$s • %2$s</string>
-
-    <string name="core_ui_topic_chip_content_description_when_followed">%1$s is followed</string>
-    <string name="core_ui_topic_chip_content_description_when_not_followed">%1$s is not followed</string>
-
-    <string name="core_ui_interests_card_follow_button_content_desc">Follow interest</string>
-    <string name="core_ui_interests_card_unfollow_button_content_desc">Unfollow interest</string>
-    <string name="core_ui_feed_sharing">Feed sharing</string>
-    <string name="core_ui_feed_sharing_data">%1$s: %2$s</string>
+    <string name="core_ui_unsaved_changes_title">Unsaved changes</string>
+    <string name="core_ui_unsaved_changes_message">This mode has changes you have not saved yet. Choose what happens to them.</string>
+    <string name="core_ui_save">Save</string>
+    <string name="core_ui_save_as_new_mode">Save as new mode</string>
+    <string name="core_ui_discard">Discard</string>
+    <string name="core_ui_keep_editing">Keep editing</string>
+    <string name="core_ui_today">Today</string>
+    <string name="core_ui_tomorrow">Tomorrow</string>
+    <string name="core_ui_every_day">Every day</string>
+    <string name="core_ui_weekdays">Weekdays</string>
+    <string name="core_ui_weekends">Weekends</string>
+    <string name="core_ui_no_repeat_days">No repeat days</string>
+    <string name="core_ui_transition_off">Immediate</string>
 </resources>

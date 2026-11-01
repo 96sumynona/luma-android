@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright 2025 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          https://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="feature_home_impl_shell_title">Configuration only</string>
+    <string name="feature_home_impl_shell_message">This build stores your setup on this phone. No controller is connected yet, so nothing is being sent to LED hardware.</string>
+    <string name="feature_home_impl_empty_title">No strips yet</string>
+    <string name="feature_home_impl_empty_message">Add a board and the strips wired to it in Settings. They will show up here with their mode, brightness and next change.</string>
+    <string name="feature_home_impl_empty_action">Open Settings</string>
+    <string name="feature_home_impl_next_change">Next change</string>
+    <string name="feature_home_impl_no_next_change">No schedule</string>
+    <string name="feature_home_impl_mode_label">Mode</string>
+    <string name="feature_home_impl_no_mode">No mode selected</string>
+    <string name="feature_home_impl_gpio_leds">GPIO %1$d · %2$d LEDs</string>
+    <string name="feature_home_impl_open_strip">Open strip</string>
+    <string name="feature_home_impl_strip_not_found">This strip no longer exists.</string>
+    <string name="feature_home_impl_assign_mode">Assign a mode</string>
+    <string name="feature_home_impl_assign_mode_hint">Modes are shared. Changing one updates every strip and schedule that uses it.</string>
+    <string name="feature_home_impl_schedules_title">Schedules for this strip</string>
+    <string name="feature_home_impl_no_schedules">No schedules target this strip yet.</string>
+    <string name="feature_home_impl_board_label">Board</string>
+    <string name="feature_home_impl_mode_saved">Mode assigned</string>
+    <string name="feature_home_impl_active_leds">Active LEDs</string>
+    <string name="feature_home_impl_brightness_saved_note">Brightness is stored per strip and capped at 80%.</string>
+    <string name="feature_home_impl_schedule_summary">%1$s · %2$s</string>
+    <string name="feature_home_impl_next_change_value">%1$s · %2$s</string>
+</resources>
