@@ -20,8 +20,8 @@ The project targets JDK 17 and Android SDK 36; use the wrapper.
 
 - Build: `./gradlew :app:assembleDebug`
 - Format: `./gradlew spotlessApply` (ktlint, config in `tools/luma-codestyle.xml`)
-- Unit tests: `./gradlew testDebugUnitTest`
-- Single test: `./gradlew testDebugUnitTest --tests "com.luma.ledcontroller.core.model.ColorRampTest"`
+- Unit tests: `./gradlew testDebugUnitTest :core:model:test :core:common:test :lint:test`
+- Single test: `./gradlew :core:model:test --tests "com.luma.ledcontroller.core.model.ColorRampTest"`
 - Lint: `./gradlew :app:lintDebug :lint:lint`
 
 There are **no product flavours**: no `DemoDebug`, no `testDemoDebug`. Variants are `debug` and

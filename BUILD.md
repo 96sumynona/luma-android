@@ -33,11 +33,11 @@ incompatible with your SDK: the catalog and `build-logic` are matched to the ver
 # Debug APK -> app/build/outputs/apk/debug/app-debug.apk
 ./gradlew :app:assembleDebug
 
-# Unit tests for the model and domain rules
-./gradlew testDebugUnitTest
+# Unit tests, including the pure-JVM model/common modules and custom lint rules
+./gradlew testDebugUnitTest :core:model:test :core:common:test :lint:test
 
-# Everything CI runs
-./gradlew spotlessCheck testDebugUnitTest :lint:test :app:assemble -PminifyWithR8=false
+# The remaining CI checks
+./gradlew :build-logic:convention:check spotlessCheck :app:lintDebug :lint:lint
 ```
 
 Install it on a connected device:
@@ -51,6 +51,26 @@ Release builds are signed with the debug key so anyone can install them:
 ```bash
 ./gradlew :app:assembleRelease
 ```
+
+## GitHub Actions CI
+
+The **Android CI** workflow (`.github/workflows/Build.yaml`) runs automatically on every push and
+pull request. You can also open **Actions → Android CI → Run workflow** to start it manually. It uses
+JDK 17 and SDK 36, then performs these steps in order:
+
+1. Compile `:app:assembleDebug`.
+2. Run the Android debug unit tests, the pure-JVM model/common tests and the custom lint-rule tests.
+3. Check the convention plugins, formatting and Android lint.
+
+Open a workflow run to read any compiler or test errors. Its **Artifacts** section contains:
+
+- **`luma-debug-apk`** — the installable debug APK once compilation succeeds (download and unzip the
+  artifact first). It is still uploaded if a later test or lint step fails.
+- **`unit-test-results`** and **`lint-reports`** — uploaded when available, including on failures.
+
+There are currently no instrumented `androidTest` sources, so CI deliberately does not spend time
+starting an empty emulator. The five first-run flows and cosmetic checks below still need a manual
+on-device pass; emulator jobs can be added when real UI tests exist.
 
 ## First-run experience
 
