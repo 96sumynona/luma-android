@@ -1,8 +1,9 @@
 # Building and running Luma
 
 **Read this first:** this source tree was written without a JDK, Android SDK, Gradle cache or
-network access, so **it has never been compiled**. Expect the first build to surface ordinary
-compile errors. Nothing below claims the app was tested.
+network access. The first GitHub Actions `:app:assembleDebug` attempt has now run and failed; the
+unit tests and device checks have not run. Expect ordinary compile errors while that first failure
+is resolved. Nothing below claims the app was tested.
 
 ## Requirements
 

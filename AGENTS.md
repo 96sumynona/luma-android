@@ -73,6 +73,6 @@ the transfer contract, bump `LumaConfigPayload.CURRENT_SCHEMA_VERSION` and updat
 
 ## Honesty in docs
 
-`README.md`, `BUILD.md` and `docs/ARCHITECTURE.md` state that nothing has been compiled or run in the
-environment the code was written in. Keep those statements accurate: only claim something is tested
-if a build or test run actually happened.
+`README.md` and `BUILD.md` record the current build/test status. Keep those statements accurate:
+distinguish a failed compile attempt from a successful build, and only claim something is tested if
+that test actually ran.

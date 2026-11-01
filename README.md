@@ -7,9 +7,9 @@ mode at a set time.
 This build is the **app shell phase**: a complete, locally persisted configuration UI with no
 hardware behind it yet.
 
-> **Status: source only.** This tree has not been compiled or run. The environment it was adapted
-> in had no JDK, Android SDK, Gradle cache or network access, so no Gradle task, unit test or
-> instrumentation test was executed. Nothing here is claimed to work on a device. See
+> **Status: early build validation.** This tree was adapted without a JDK, Android SDK, Gradle cache
+> or network access. The first GitHub Actions `:app:assembleDebug` attempt failed, and no unit test
+> or instrumentation test has run. Nothing here is claimed to work on a device. See
 > [BUILD.md](BUILD.md) for how to build it and where to look first.
 
 ## What the app does
