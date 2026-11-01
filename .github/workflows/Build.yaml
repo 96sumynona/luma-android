@@ -15,7 +15,7 @@ permissions:
 jobs:
   build:
     name: "Compile, unit tests, lint and debug APK"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 60
 
     steps:
@@ -34,9 +34,7 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
 
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
-
+      # GitHub-hosted Ubuntu images include the Android SDK and sdkmanager.
       - name: Install Android SDK 36
         run: sdkmanager "platforms;android-36"
 
