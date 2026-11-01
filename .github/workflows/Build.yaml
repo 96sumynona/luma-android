@@ -34,9 +34,10 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
 
-      # GitHub-hosted Ubuntu images include the Android SDK and sdkmanager.
+      # GitHub-hosted Ubuntu images include the Android SDK, but sdkmanager is not on PATH.
       - name: Install Android SDK 36
-        run: sdkmanager "platforms;android-36"
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
 
       - name: Compile the debug APK
         run: ./gradlew :app:assembleDebug --stacktrace
